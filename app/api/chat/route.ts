@@ -33,7 +33,7 @@ export const POST = async (request: NextRequest) => {
   let ingredientsString = "";
 
   for (const ingredient of ingredients){
-    ingredientsString += ingredient + " "
+    ingredientsString += ingredient + ", "
   }
   
 

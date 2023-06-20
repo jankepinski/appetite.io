@@ -12,7 +12,7 @@ export default function IngredientInput(props) {
       onKeyDown={(event) =>
         event.key === "Enter"
           ? (() => {
-              props.callbacks.setIngredients([
+              props.setIngredients([
                 ...props.ingredients,
                 { content: ingredient, uuid: crypto.randomUUID() },
               ]);

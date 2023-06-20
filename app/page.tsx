@@ -17,15 +17,15 @@ export default function Page() {
     <div>
       <IngredientInput
         ingredients={ingredients}
-        callbacks={{ setIngredients: setIngredients }}
+        setIngredients={setIngredients}
       />
       <SubmitButton
         ingredients={ingredients}
-        callbacks={{ setRecipe: setRecipe }}
+        setRecipe={setRecipe}
       />
       <IngredientsList
         ingredients={ingredients}
-        callbacks={{ setIngredients: setIngredients }}
+        setIngredients={setIngredients}
       />
       <div>Recipe: {recipe}</div>
     </div>

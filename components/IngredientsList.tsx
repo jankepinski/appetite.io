@@ -7,7 +7,7 @@ export default function IngredientsList(props) {
         <div
           key={i.uuid}
           onClick={() => {
-            props.callbacks.setIngredients(
+            props.setIngredients(
               [...props.ingredients].filter((ing) => ing.uuid !== i.uuid)
             );
           }}

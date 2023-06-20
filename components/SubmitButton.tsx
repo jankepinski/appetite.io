@@ -11,7 +11,7 @@ export default function SubmitButton(props) {
       body: JSON.stringify(reqBody),
     });
     let resp = await fetch(request).then((response) => response.json());
-    props.callbacks.setRecipe(resp.message);
+    props.setRecipe(resp.message);
   };
 
   return <button onClick={getRecipe}>Get The Recipe</button>;
