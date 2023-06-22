@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@mui/material";
 
 export default function SubmitButton(props) {
   const getRecipe = async () => {
@@ -10,9 +11,24 @@ export default function SubmitButton(props) {
       method: "POST",
       body: JSON.stringify(reqBody),
     });
-    let resp = await fetch(request).then((response) => response.json());
-    props.setRecipe(resp.message);
+    let resp = await fetch(request).then((response) => {
+      props.setPending(false);
+      return response.json();
+    });
+    props.setRecipe(resp.recipe);
   };
 
-  return <button onClick={getRecipe}>Get The Recipe</button>;
+  return (
+    <Button
+      variant="contained"
+      color="primary"
+      onClick={() => {
+        props.setPending(true);
+        getRecipe();
+      }}
+      sx={{ textTransform: "capitalize" }}
+    >
+      Get Recipe
+    </Button>
+  );
 }

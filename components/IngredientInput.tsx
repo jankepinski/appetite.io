@@ -1,13 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { TextField } from "@mui/material";
 
 export default function IngredientInput(props) {
   const [ingredient, setIngredient] = useState("");
 
   return (
-    <input
+    <TextField
+      label="Enter ingredient"
+      variant="outlined"
+      fullWidth
       value={ingredient}
-      type="text"
       onChange={(event) => setIngredient(event.target.value)}
       onKeyDown={(event) =>
         event.key === "Enter"
@@ -20,6 +23,6 @@ export default function IngredientInput(props) {
             })()
           : null
       }
-    ></input>
+    />
   );
 }
