@@ -23,18 +23,20 @@ export default function Page() {
   const [pending, setPending] = useState(false);
 
   return (
-    <div className="app.container">
-      <ThemeProvider theme={darkTheme}>
-        <Box display="flex" sx={{ justifyContent: "space-evenly" }}>
-          <IngredientsContainer
-            ingredients={ingredients}
-            setIngredients={setIngredients}
-            setRecipe={setRecipe}
-            setPending={setPending}
-          />
-          <RecipeContainer recipe={recipe} pending={pending}/>
-        </Box>
-      </ThemeProvider>
+    <div>
+      <div className="app.container">
+        <ThemeProvider theme={darkTheme}>
+          <Box display="flex" sx={{ justifyContent: "space-evenly" }}>
+            <IngredientsContainer
+              ingredients={ingredients}
+              setIngredients={setIngredients}
+              setRecipe={setRecipe}
+              setPending={setPending}
+            />
+            <RecipeContainer recipe={recipe} pending={pending} />
+          </Box>
+        </ThemeProvider>
+      </div>
     </div>
   );
 }

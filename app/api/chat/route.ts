@@ -27,7 +27,6 @@ const gpt = async (prompt: string) => {
 
 export const POST = async (request: NextRequest) => {
   const ingredients = await request.json().then((body) => body.ingredients);
-  console.log("working on it");
 
   let ingredientsString = "";
 
@@ -36,9 +35,7 @@ export const POST = async (request: NextRequest) => {
   }
 
   let message: any = await gpt(
-    `Give me a recipe for a dish using following ingredients: ` +
-      ingredientsString +
-      `. Your reply should be just json code, and only json code, without any regular text. The json should look like this: {name: "put name of the recipe here", ingredients: [put a list of ingredients including quantities here as an array of strings], instructions: [put a list of instructions here as an array of strings, where one string equals one step]}.`
+    `Give me a recipe for a dish using following ingredients: ${ingredientsString}. Your reply should be just json code, and only json code, without any regular text. The json should look like this: {name: "put name of the recipe here", ingredients: [put a list of ingredients including quantities here as an array of strings], instructions: [put a list of instructions here as an array of strings, where one string equals one step]}.`
   ).then((resp) => resp.data.choices[0].message.content);
 
   return NextResponse.json({ recipe: JSON.parse(message) });
